@@ -27,6 +27,10 @@ public class Dot {
 
   @ManyToOne
   @JoinColumn(name = "background_id")
-  private Attribute background;
+  private Background background;
+
+  @ManyToOne
+  @JoinColumn(name = "skill_id")
+  private Skill skill;
 
 }
