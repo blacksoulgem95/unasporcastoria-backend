@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "background")
+@Table(name = "backgrounds")
 @RequiredArgsConstructor
 public class Background {
   @Id

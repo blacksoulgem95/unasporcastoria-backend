@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "attribute")
+@Table(name = "attributes")
 @RequiredArgsConstructor
 public class Attribute {
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "skill")
+@Table(name = "skills")
 @RequiredArgsConstructor
 public class Skill {
 
