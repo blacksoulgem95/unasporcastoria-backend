@@ -37,22 +37,29 @@ public class Character {
 
   @ManyToMany
   @JoinTable(
-      name = "discarded_skills",
+      name = "character_discarded_skills",
       joinColumns = @JoinColumn(name = "character_id"),
       inverseJoinColumns = @JoinColumn(name = "skill_id"))
   private Set<Skill> discardedSkills;
 
   @ManyToMany
   @JoinTable(
-      name = "faction_skills",
+      name = "character_faction_skills",
       joinColumns = @JoinColumn(name = "character_id"),
       inverseJoinColumns = @JoinColumn(name = "skill_id"))
   private Set<Skill> factionSkills;
 
   @ManyToMany
   @JoinTable(
-      name = "job_skills",
+      name = "character_job_skills",
       joinColumns = @JoinColumn(name = "character_id"),
       inverseJoinColumns = @JoinColumn(name = "skill_id"))
   private Set<Skill> jobSkills;
+
+  @ManyToMany
+  @JoinTable(
+      name = "character_defects",
+      joinColumns = @JoinColumn(name = "character_id"),
+      inverseJoinColumns = @JoinColumn(name = "defect_id"))
+  private Set<Defect> defects;
 }
