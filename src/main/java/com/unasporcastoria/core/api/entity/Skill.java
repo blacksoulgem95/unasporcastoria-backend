@@ -1,12 +1,16 @@
 package com.unasporcastoria.core.api.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "skills")
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Skill {
 

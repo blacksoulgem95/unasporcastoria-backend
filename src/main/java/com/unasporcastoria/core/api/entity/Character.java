@@ -1,13 +1,17 @@
 package com.unasporcastoria.core.api.entity;
 
 import com.unasporcastoria.core.api.enums.CharacterType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "characters")
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Character {
 
@@ -19,10 +23,10 @@ public class Character {
   @Column(name = "user_id")
   private String userId;
 
-  @Column(name = "enabled")
+  @Column(name = "enabled", nullable = false)
   private boolean enabled;
 
-  @Column(name = "type")
+  @Column(name = "type", nullable = false)
   @Enumerated(EnumType.STRING)
   private CharacterType type;
 
