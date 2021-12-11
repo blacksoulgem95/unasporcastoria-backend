@@ -30,5 +30,5 @@ public class Attribute {
   private String externalId;
 
   @OneToMany(mappedBy = "attribute")
-  private List<Dot> attributeDots;
+  private Set<Dot> attributeDots;
 }

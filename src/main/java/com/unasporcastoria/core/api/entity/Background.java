@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -46,5 +47,5 @@ public class Background {
   private Long costType;
 
   @OneToMany(mappedBy = "background")
-  private List<Dot> backgroundDots;
+  private Set<Dot> backgroundDots;
 }

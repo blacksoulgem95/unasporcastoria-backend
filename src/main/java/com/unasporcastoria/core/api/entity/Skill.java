@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,7 +30,7 @@ public class Skill {
   private String description2;
 
   @OneToMany(mappedBy = "skill")
-  private List<Dot> skillDots;
+  private Set<Dot> skillDots;
 
 }
 
