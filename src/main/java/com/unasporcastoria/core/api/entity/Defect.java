@@ -25,7 +25,8 @@ public class Defect {
   @Column(name = "cost")
   private Long cost;
 
-  @Column(name = "description", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "description")
   private String description;
 
   @ManyToMany(mappedBy = "defects")

@@ -23,7 +23,8 @@ public class Attribute {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "description", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "description")
   private String description;
 
   @Column(name = "external_id", unique = true)

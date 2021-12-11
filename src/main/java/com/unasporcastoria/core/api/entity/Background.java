@@ -22,7 +22,8 @@ public class Background {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "description", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "description")
   private String description;
 
   @Column(name = "bonus")
@@ -37,7 +38,8 @@ public class Background {
   @Column(name = "extra")
   private String extra;
 
-  @Column(name = "note", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "note")
   private String note;
 
   @Column(name = "count")

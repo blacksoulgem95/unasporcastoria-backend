@@ -23,10 +23,12 @@ public class Skill {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "description_1", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "description_1")
   private String description1;
 
-  @Column(name = "description_2", columnDefinition = "TEXT")
+  @Lob
+  @Column(name = "description_2")
   private String description2;
 
   @OneToMany(mappedBy = "skill")
