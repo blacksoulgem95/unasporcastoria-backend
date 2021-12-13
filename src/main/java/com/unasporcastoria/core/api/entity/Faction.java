@@ -4,7 +4,6 @@ import com.unasporcastoria.core.api.enums.FactionType;
 import com.unasporcastoria.core.api.enums.FactionVisibility;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
