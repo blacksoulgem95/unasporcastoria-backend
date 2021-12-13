@@ -11,21 +11,21 @@ import javax.persistence.*;
 @Table(name = "character_skills")
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class CharacterSkill {
+public class CharacterSkill extends BaseEntity {
 
-  @Id
-  @GeneratedValue
-  @Column(name = "id")
-  private Long id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
-  @Column(name = "value")
-  private Long value;
+    @Column(name = "value")
+    private Long value;
 
-  @ManyToOne
-  @JoinColumn(name = "skill_id")
-  private Skill skill;
+    @ManyToOne
+    @JoinColumn(name = "skill_id")
+    private Skill skill;
 
-  @ManyToOne
-  @JoinColumn(name = "character_id")
-  private Character characterSheet;
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private Character characterSheet;
 }
