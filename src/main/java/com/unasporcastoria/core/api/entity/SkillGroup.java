@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
@@ -23,10 +24,10 @@ public class SkillGroup {
     private Long count;
 
     @ManyToOne
-    @Column(name = "job_id")
+    @JoinColumn(name = "job_id")
     private Job job;
 
     @ManyToMany(mappedBy = "skillGroups")
-    private Set<Skill> skills = new java.util.LinkedHashSet<>();
+    private Set<Skill> skills = new LinkedHashSet<>();
 
 }

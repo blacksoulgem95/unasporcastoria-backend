@@ -32,7 +32,6 @@ public class Downtime extends BaseEntity {
     @Column(name = "resolution")
     private String resolution;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "resolution_time")
     private LocalDateTime resolutionTime;
 

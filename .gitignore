@@ -2,6 +2,7 @@
 *.iml
 
 *.log
+*.log.*
 
 target
 .jpb

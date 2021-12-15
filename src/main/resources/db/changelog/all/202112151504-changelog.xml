@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1639577046043-1" author="sofia (generated)">
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet id="1639577046043-2" author="sofia (generated)">
+        <createTable tableName="attributes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_attributes"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="external_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-3" author="sofia (generated)">
+        <createTable tableName="backgrounds">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_backgrounds"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="bonus" type="VARCHAR(255)"/>
+            <column name="malus" type="VARCHAR(255)"/>
+            <column name="keep" type="VARCHAR(255)"/>
+            <column name="extra" type="VARCHAR(255)"/>
+            <column name="note" type="CLOB"/>
+            <column name="count" type="BIGINT"/>
+            <column name="cost_type" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-4" author="sofia (generated)">
+        <createTable tableName="character_attributes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_attributes"/>
+            </column>
+            <column name="value" type="BIGINT"/>
+            <column name="attribute_id" type="BIGINT"/>
+            <column name="character_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-5" author="sofia (generated)">
+        <createTable tableName="character_backgrounds">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_backgrounds"/>
+            </column>
+            <column name="value" type="BIGINT"/>
+            <column name="background_id" type="BIGINT"/>
+            <column name="character_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-6" author="sofia (generated)">
+        <createTable tableName="character_defects">
+            <column name="character_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_defects"/>
+            </column>
+            <column name="defect_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_defects"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-7" author="sofia (generated)">
+        <createTable tableName="character_discarded_skills">
+            <column name="character_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_discarded_skills"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_discarded_skills"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-8" author="sofia (generated)">
+        <createTable tableName="character_faction_skills">
+            <column name="character_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_faction_skills"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_faction_skills"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-9" author="sofia (generated)">
+        <createTable tableName="character_job_skills">
+            <column name="character_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_job_skills"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_job_skills"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-10" author="sofia (generated)">
+        <createTable tableName="character_skills">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_character_skills"/>
+            </column>
+            <column name="value" type="BIGINT"/>
+            <column name="skill_id" type="BIGINT"/>
+            <column name="character_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-11" author="sofia (generated)">
+        <createTable tableName="characters">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_characters"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)"/>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="faction_id" type="BIGINT"/>
+            <column name="faith_id" type="BIGINT"/>
+            <column name="job_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-12" author="sofia (generated)">
+        <createTable tableName="comments">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_comments"/>
+            </column>
+            <column name="author" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" type="CLOB"/>
+            <column name="downtime_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-13" author="sofia (generated)">
+        <createTable tableName="defects">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_defects"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="cost" type="BIGINT"/>
+            <column name="description" type="CLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-14" author="sofia (generated)">
+        <createTable tableName="dots">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_dots"/>
+            </column>
+            <column name="effect" type="VARCHAR(255)"/>
+            <column name="value" type="DOUBLE"/>
+            <column name="attribute_id" type="BIGINT"/>
+            <column name="background_id" type="BIGINT"/>
+            <column name="skill_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-15" author="sofia (generated)">
+        <createTable tableName="downtime_definitions">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_downtime_definitions"/>
+            </column>
+            <column name="description" type="CLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="CLOB"/>
+            <column name="challenge" type="BIGINT"/>
+            <column name="attribute_id" type="BIGINT"/>
+            <column name="skill_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-16" author="sofia (generated)">
+        <createTable tableName="downtime_definitions_items">
+            <column name="downtime_definition_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_downtime_definitions_items"/>
+            </column>
+            <column name="items_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_downtime_definitions_items"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-17" author="sofia (generated)">
+        <createTable tableName="downtimes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_downtimes"/>
+            </column>
+            <column name="description" type="CLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="resolution" type="CLOB"/>
+            <column name="resolution_time" type="DATETIME"/>
+            <column name="story_teller" type="VARCHAR(255)"/>
+            <column name="character_id" type="BIGINT"/>
+            <column name="recipe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-18" author="sofia (generated)">
+        <createTable tableName="faction_skills">
+            <column name="faction_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faction_skills"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faction_skills"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-19" author="sofia (generated)">
+        <createTable tableName="factions">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_factions"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-20" author="sofia (generated)">
+        <createTable tableName="faiths">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faiths"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="limit_spouses" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-21" author="sofia (generated)">
+        <createTable tableName="faiths_characters">
+            <column name="faith_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faiths_characters"/>
+            </column>
+            <column name="characters_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_faiths_characters"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-22" author="sofia (generated)">
+        <createTable tableName="inventories">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_inventories"/>
+            </column>
+            <column name="label" type="VARCHAR(255)"/>
+            <column name="character_id" type="BIGINT"/>
+            <column name="is_public" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-23" author="sofia (generated)">
+        <createTable tableName="inventory_entries">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_inventory_entries"/>
+            </column>
+            <column name="quantity" type="BIGINT"/>
+            <column name="struct_point" type="BIGINT"/>
+            <column name="inventory_id" type="BIGINT"/>
+            <column name="downtime_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-24" author="sofia (generated)">
+        <createTable tableName="items">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_items"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="image_url" type="CLOB"/>
+            <column name="price" type="BIGINT"/>
+            <column name="selling_price" type="BIGINT"/>
+            <column name="value" type="BIGINT"/>
+            <column name="dots" type="BIGINT"/>
+            <column name="max" type="BIGINT"/>
+            <column name="bonus" type="BIGINT"/>
+            <column name="struct_point" type="BIGINT"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="macro_type" type="VARCHAR(255)"/>
+            <column name="enabled" type="BOOLEAN"/>
+            <column name="is_consumable" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="only_in_creation" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-25" author="sofia (generated)">
+        <createTable tableName="job_types">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_job_types"/>
+            </column>
+            <column name="label" type="VARCHAR(255)"/>
+            <column name="requisite" type="BIGINT"/>
+            <column name="job_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-26" author="sofia (generated)">
+        <createTable tableName="jobs">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jobs"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="cite" type="CLOB"/>
+            <column name="can_marry" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-27" author="sofia (generated)">
+        <createTable tableName="recipes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_recipes"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
+            <column name="downtime_definition_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-28" author="sofia (generated)">
+        <createTable tableName="recipes_items">
+            <column name="items_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_recipes_items"/>
+            </column>
+            <column name="recipe_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_recipes_items"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-29" author="sofia (generated)">
+        <createTable tableName="skill_groups">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_skill_groups"/>
+            </column>
+            <column name="count" type="BIGINT"/>
+            <column name="job_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-30" author="sofia (generated)">
+        <createTable tableName="skills">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_skills"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description_1" type="CLOB"/>
+            <column name="description_2" type="CLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-31" author="sofia (generated)">
+        <createTable tableName="skills_skill_groups">
+            <column name="skill_group_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_skills_skill_groups"/>
+            </column>
+            <column name="skill_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_skills_skill_groups"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1639577046043-32" author="sofia (generated)">
+        <addUniqueConstraint columnNames="external_id" constraintName="uc_attributes_external" tableName="attributes"/>
+    </changeSet>
+    <changeSet id="1639577046043-33" author="sofia (generated)">
+        <addUniqueConstraint columnNames="characters_id" constraintName="uc_faiths_characters_characters"
+                             tableName="faiths_characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-34" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="faction_id" baseTableName="characters"
+                                 constraintName="FK_CHARACTERS_ON_FACTION" referencedColumnNames="id"
+                                 referencedTableName="factions"/>
+    </changeSet>
+    <changeSet id="1639577046043-35" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="faith_id" baseTableName="characters"
+                                 constraintName="FK_CHARACTERS_ON_FAITH" referencedColumnNames="id"
+                                 referencedTableName="faiths"/>
+    </changeSet>
+    <changeSet id="1639577046043-36" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="job_id" baseTableName="characters"
+                                 constraintName="FK_CHARACTERS_ON_JOB" referencedColumnNames="id"
+                                 referencedTableName="jobs"/>
+    </changeSet>
+    <changeSet id="1639577046043-37" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="attribute_id" baseTableName="character_attributes"
+                                 constraintName="FK_CHARACTER_ATTRIBUTES_ON_ATTRIBUTE" referencedColumnNames="id"
+                                 referencedTableName="attributes"/>
+    </changeSet>
+    <changeSet id="1639577046043-38" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_attributes"
+                                 constraintName="FK_CHARACTER_ATTRIBUTES_ON_CHARACTER" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-39" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="background_id" baseTableName="character_backgrounds"
+                                 constraintName="FK_CHARACTER_BACKGROUNDS_ON_BACKGROUND" referencedColumnNames="id"
+                                 referencedTableName="backgrounds"/>
+    </changeSet>
+    <changeSet id="1639577046043-40" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_backgrounds"
+                                 constraintName="FK_CHARACTER_BACKGROUNDS_ON_CHARACTER" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-41" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_skills"
+                                 constraintName="FK_CHARACTER_SKILLS_ON_CHARACTER" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-42" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="character_skills"
+                                 constraintName="FK_CHARACTER_SKILLS_ON_SKILL" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-43" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="downtime_id" baseTableName="comments"
+                                 constraintName="FK_COMMENTS_ON_DOWNTIME" referencedColumnNames="id"
+                                 referencedTableName="downtimes"/>
+    </changeSet>
+    <changeSet id="1639577046043-44" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="attribute_id" baseTableName="dots"
+                                 constraintName="FK_DOTS_ON_ATTRIBUTE" referencedColumnNames="id"
+                                 referencedTableName="attributes"/>
+    </changeSet>
+    <changeSet id="1639577046043-45" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="background_id" baseTableName="dots"
+                                 constraintName="FK_DOTS_ON_BACKGROUND" referencedColumnNames="id"
+                                 referencedTableName="backgrounds"/>
+    </changeSet>
+    <changeSet id="1639577046043-46" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="dots" constraintName="FK_DOTS_ON_SKILL"
+                                 referencedColumnNames="id" referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-47" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="downtimes"
+                                 constraintName="FK_DOWNTIMES_ON_CHARACTER" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-48" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="recipe_id" baseTableName="downtimes"
+                                 constraintName="FK_DOWNTIMES_ON_RECIPE" referencedColumnNames="id"
+                                 referencedTableName="recipes"/>
+    </changeSet>
+    <changeSet id="1639577046043-49" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="attribute_id" baseTableName="downtime_definitions"
+                                 constraintName="FK_DOWNTIME_DEFINITIONS_ON_ATTRIBUTE" referencedColumnNames="id"
+                                 referencedTableName="attributes"/>
+    </changeSet>
+    <changeSet id="1639577046043-50" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="downtime_definitions"
+                                 constraintName="FK_DOWNTIME_DEFINITIONS_ON_SKILL" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-51" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="inventories"
+                                 constraintName="FK_INVENTORIES_ON_CHARACTER" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-52" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="downtime_id" baseTableName="inventory_entries"
+                                 constraintName="FK_INVENTORY_ENTRIES_ON_DOWNTIME" referencedColumnNames="id"
+                                 referencedTableName="downtimes"/>
+    </changeSet>
+    <changeSet id="1639577046043-53" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="inventory_id" baseTableName="inventory_entries"
+                                 constraintName="FK_INVENTORY_ENTRIES_ON_INVENTORY" referencedColumnNames="id"
+                                 referencedTableName="inventories"/>
+    </changeSet>
+    <changeSet id="1639577046043-54" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="job_id" baseTableName="job_types" constraintName="FK_JOB_TYPES_ON_JOB"
+                                 referencedColumnNames="id" referencedTableName="jobs"/>
+    </changeSet>
+    <changeSet id="1639577046043-55" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="downtime_definition_id" baseTableName="recipes"
+                                 constraintName="FK_RECIPES_ON_DOWNTIME_DEFINITION" referencedColumnNames="id"
+                                 referencedTableName="downtime_definitions"/>
+    </changeSet>
+    <changeSet id="1639577046043-56" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="job_id" baseTableName="skill_groups"
+                                 constraintName="FK_SKILL_GROUPS_ON_JOB" referencedColumnNames="id"
+                                 referencedTableName="jobs"/>
+    </changeSet>
+    <changeSet id="1639577046043-57" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_defects"
+                                 constraintName="fk_chadef_on_character" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-58" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="defect_id" baseTableName="character_defects"
+                                 constraintName="fk_chadef_on_defect" referencedColumnNames="id"
+                                 referencedTableName="defects"/>
+    </changeSet>
+    <changeSet id="1639577046043-59" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_discarded_skills"
+                                 constraintName="fk_chadisski_on_character" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-60" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="character_discarded_skills"
+                                 constraintName="fk_chadisski_on_skill" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-61" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_faction_skills"
+                                 constraintName="fk_chafacski_on_character" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-62" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="character_faction_skills"
+                                 constraintName="fk_chafacski_on_skill" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-63" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="character_id" baseTableName="character_job_skills"
+                                 constraintName="fk_chajobski_on_character" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-64" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="character_job_skills"
+                                 constraintName="fk_chajobski_on_skill" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-65" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="downtime_definition_id" baseTableName="downtime_definitions_items"
+                                 constraintName="fk_dowdefite_on_downtime_definition" referencedColumnNames="id"
+                                 referencedTableName="downtime_definitions"/>
+    </changeSet>
+    <changeSet id="1639577046043-66" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="items_id" baseTableName="downtime_definitions_items"
+                                 constraintName="fk_dowdefite_on_item" referencedColumnNames="id"
+                                 referencedTableName="items"/>
+    </changeSet>
+    <changeSet id="1639577046043-67" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="faction_id" baseTableName="faction_skills"
+                                 constraintName="fk_facski_on_faction" referencedColumnNames="id"
+                                 referencedTableName="factions"/>
+    </changeSet>
+    <changeSet id="1639577046043-68" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="faction_skills"
+                                 constraintName="fk_facski_on_skill" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-69" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="characters_id" baseTableName="faiths_characters"
+                                 constraintName="fk_faicha_on_character" referencedColumnNames="id"
+                                 referencedTableName="characters"/>
+    </changeSet>
+    <changeSet id="1639577046043-70" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="faith_id" baseTableName="faiths_characters"
+                                 constraintName="fk_faicha_on_faith" referencedColumnNames="id"
+                                 referencedTableName="faiths"/>
+    </changeSet>
+    <changeSet id="1639577046043-71" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="items_id" baseTableName="recipes_items"
+                                 constraintName="fk_recite_on_item" referencedColumnNames="id"
+                                 referencedTableName="items"/>
+    </changeSet>
+    <changeSet id="1639577046043-72" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="recipe_id" baseTableName="recipes_items"
+                                 constraintName="fk_recite_on_recipe" referencedColumnNames="id"
+                                 referencedTableName="recipes"/>
+    </changeSet>
+    <changeSet id="1639577046043-73" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="skills_skill_groups"
+                                 constraintName="fk_skiskigro_on_skill" referencedColumnNames="id"
+                                 referencedTableName="skills"/>
+    </changeSet>
+    <changeSet id="1639577046043-74" author="sofia (generated)">
+        <addForeignKeyConstraint baseColumnNames="skill_group_id" baseTableName="skills_skill_groups"
+                                 constraintName="fk_skiskigro_on_skill_group" referencedColumnNames="id"
+                                 referencedTableName="skill_groups"/>
+    </changeSet>
+
+</databaseChangeLog>

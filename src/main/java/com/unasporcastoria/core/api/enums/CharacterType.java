@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum CharacterType {
-  PC("PC"),
-  NPC("NPC");
+    PC("PC"),
+    NPC("NPC");
 
-  @Getter
-  @JsonValue
-  private final String value;
+    @Getter
+    @JsonValue
+    private final String value;
 }
