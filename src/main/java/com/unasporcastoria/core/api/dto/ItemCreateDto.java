@@ -33,6 +33,7 @@ public class ItemCreateDto implements Serializable {
         item.setValue(this.value);
         item.setDots(this.dots);
         item.setMax(this.max);
+        item.setBonus(this.bonus);
         item.setStructPoint(this.structPoint);
         item.setType(this.type);
         item.setMacroType(this.macroType);
