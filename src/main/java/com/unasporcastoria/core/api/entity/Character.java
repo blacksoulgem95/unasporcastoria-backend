@@ -1,6 +1,7 @@
 package com.unasporcastoria.core.api.entity;
 
 import com.unasporcastoria.core.api.enums.CharacterType;
+import com.unasporcastoria.core.api.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,10 @@ public class Character extends BaseEntity {
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
     private CharacterType type;
+
+    @Column(name = "gender", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @ManyToOne
     @JoinColumn(name = "faction_id")
@@ -81,4 +86,9 @@ public class Character extends BaseEntity {
             joinColumns = @JoinColumn(name = "character_id"),
             inverseJoinColumns = @JoinColumn(name = "defect_id"))
     private Set<Defect> defects = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
+
 }

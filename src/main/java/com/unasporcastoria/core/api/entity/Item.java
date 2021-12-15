@@ -77,5 +77,6 @@ public class Item extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "downtime_definition_id", referencedColumnName = "id"))
     private Set<DowntimeDefinition> downtimeDefinitions = new LinkedHashSet<>();
 
-    // TODO: recipes
+    @ManyToMany(mappedBy = "items")
+    private Set<Recipe> recipes = new LinkedHashSet<>();
 }

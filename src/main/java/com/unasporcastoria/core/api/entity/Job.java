@@ -10,10 +10,10 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "faiths")
+@Table(name = "jobs")
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Faith extends BaseEntity {
+public class Job {
 
     @Id
     @GeneratedValue
@@ -27,10 +27,19 @@ public class Faith extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "limit_spouses")
-    private Long limit_spouses = 1L;
+    @Lob
+    @Column(name = "cite")
+    private String cite;
 
-    @OneToMany
+    @Column(name = "can_marry")
+    private boolean canMarry;
+
+    @OneToMany(mappedBy = "job")
     private Set<Character> characters = new LinkedHashSet<>();
 
+    @OneToMany(mappedBy = "job")
+    private Set<SkillGroup> skillGroups = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "job")
+    private Set<JobType> requisites = new LinkedHashSet<>();
 }

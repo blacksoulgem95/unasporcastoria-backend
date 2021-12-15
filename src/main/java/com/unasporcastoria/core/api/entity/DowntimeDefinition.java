@@ -34,8 +34,6 @@ public class DowntimeDefinition extends BaseEntity {
     @Column(name = "challenge")
     private Long challenge;
 
-    // TODO: items, recipes
-
     @ManyToOne
     @JoinColumn(name = "attribute_id")
     private Attribute attribute;
@@ -44,7 +42,11 @@ public class DowntimeDefinition extends BaseEntity {
     @JoinColumn(name = "skill_id")
     private Skill skill;
 
+    @OneToMany(mappedBy = "downtimeDefinition")
+    private Set<Recipe> recipes = new LinkedHashSet<>();
+
     @ManyToMany(mappedBy = "downtimeDefinitions")
     private Set<Item> items = new LinkedHashSet<>();
+
 
 }

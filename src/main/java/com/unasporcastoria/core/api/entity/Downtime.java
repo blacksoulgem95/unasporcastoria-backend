@@ -48,4 +48,8 @@ public class Downtime extends BaseEntity {
 
     @OneToMany(mappedBy = "downtime", cascade = CascadeType.DETACH)
     private Set<InventoryEntry> entries = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "recipe_id")
+    private Recipe recipe;
 }

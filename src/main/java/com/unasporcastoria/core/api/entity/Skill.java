@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -36,6 +38,12 @@ public class Skill extends BaseEntity {
 
     @OneToMany(mappedBy = "skill")
     private Set<DowntimeDefinition> downtimeDefinitions = new LinkedHashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "skills_skill_groups",
+            joinColumns = @JoinColumn(name = "skill_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_group_id"))
+    private List<SkillGroup> skillGroups = new ArrayList<>();
 
 }
 
