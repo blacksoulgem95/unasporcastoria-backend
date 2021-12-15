@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "cloud.aws.secret-key",
+      "type": "java.lang.String",
+      "description": "AWS Secret Key."
+    },
+    {
+      "name": "cloud.aws.region",
+      "type": "java.lang.String",
+      "description": "AWS Region."
+    },
+    {
+      "name": "cloud.aws.access-key",
+      "type": "java.lang.String",
+      "description": "AWS Access Key."
+    },
+    {
+      "name": "cloud.aws.s3.bucket",
+      "type": "java.lang.String",
+      "description": "AWS Bucket."
+    },
+    {
+      "name": "cloud.aws.s3.endpoint",
+      "type": "java.lang.String",
+      "description": "AWS Bucket base Endpoint to share uploaded images."
+    }
+  ] }
