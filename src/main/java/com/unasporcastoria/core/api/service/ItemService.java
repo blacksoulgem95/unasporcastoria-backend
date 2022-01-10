@@ -4,6 +4,8 @@ import com.unasporcastoria.core.api.dto.ItemCreateDto;
 import com.unasporcastoria.core.api.entity.Item;
 import com.unasporcastoria.core.api.exception.WrongFileTypeException;
 import com.unasporcastoria.core.api.repository.ItemRepository;
+import com.unasporcastoria.core.api.service.storage.FirebaseStorageService;
+import com.unasporcastoria.core.api.service.storage.StorageService;
 import com.unasporcastoria.core.api.util.FileUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +22,9 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ItemService extends BaseService {
+
     private final ItemRepository itemRepository;
-    private final S3Service s3;
+    private final FirebaseStorageService storage;
 
     {
         this.entityName = "Item";
@@ -49,10 +52,10 @@ public class ItemService extends BaseService {
         }
 
         if (StringUtils.isNotEmpty(item.getImageUrl())) {
-            s3.deleteImageFromUrl(item.getImageUrl());
+            storage.deleteImageFromUrl(item.getImageUrl());
         }
 
-        var fileUrl = s3.upload("images/items/", "item_" + item.getId(), file);
+        var fileUrl = storage.upload("images/items/", "item_" + item.getId(), file);
 
         item.setImageUrl(fileUrl);
 
