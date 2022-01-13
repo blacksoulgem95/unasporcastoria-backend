@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.nio.charset.StandardCharsets;
 public class FirebaseConfig {
   @Value("${cloud.firebase.serviceaccount}")
   private String serviceAccount;
+  @Value("${cloud.firebase.bucket}")
+  private String bucket;
 
   @Bean
   public FirebaseOptions options() throws IOException {
@@ -47,7 +50,7 @@ public class FirebaseConfig {
   @Bean
   public Bucket bucket() {
     try {
-      return StorageClient.getInstance(firebaseApp()).bucket();
+      return StorageClient.getInstance(firebaseApp()).bucket(bucket);
     } catch (Exception e) {
       log.warn("Cannot instantiate Google Cloud Bucket:", e);
       return null;

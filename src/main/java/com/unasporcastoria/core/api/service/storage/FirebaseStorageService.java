@@ -1,12 +1,14 @@
 package com.unasporcastoria.core.api.service.storage;
 
 import com.google.cloud.storage.Blob;
+
 import com.google.cloud.storage.Bucket;
 import com.unasporcastoria.core.api.exception.Error;
 import com.unasporcastoria.core.api.exception.USSException;
 import com.unasporcastoria.core.api.util.FileUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +17,7 @@ import java.io.FileInputStream;
 
 @Slf4j
 @Service("firebaseStorage")
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class FirebaseStorageService implements StorageService {
 
   private final Bucket bucket;

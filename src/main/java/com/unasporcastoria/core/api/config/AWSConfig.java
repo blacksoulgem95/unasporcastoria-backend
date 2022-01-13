@@ -20,7 +20,7 @@ public class AWSConfig {
     @Value("${cloud.aws.region}")
     private String region;
 
-    @Value("${cloud.aws.bucket}")
+    @Value("${cloud.aws.s3.bucket}")
     private String bucket;
 
     @Primary
