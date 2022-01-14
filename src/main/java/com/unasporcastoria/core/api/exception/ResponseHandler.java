@@ -10,10 +10,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ResponseHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {USSException.class})
-    protected ResponseEntity<Object> handleConflict(
-            USSException ex, WebRequest request) {
-        return handleExceptionInternal(ex, ex.getData(), new HttpHeaders(), ex.getError().getStatus(), request);
-    }
+  @ExceptionHandler(value = {USSException.class})
+  protected ResponseEntity<Object> handleConflict(
+      USSException ex, WebRequest request) {
+    return handleExceptionInternal(ex, ex.getData(), new HttpHeaders(), ex.getError().getStatus(), request);
+  }
 }
 

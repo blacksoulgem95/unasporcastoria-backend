@@ -15,15 +15,15 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 public abstract class BaseEntity {
 
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+  @CreationTimestamp
+  @Column(name = "created_at")
+  private LocalDateTime createdAt;
 
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+  @UpdateTimestamp
+  @Column(name = "updated_at")
+  private LocalDateTime updatedAt;
 
-    @CreatedBy
-    @Column(name = "created_by")
-    private String createdBy;
+  @CreatedBy
+  @Column(name = "created_by")
+  private String createdBy;
 }

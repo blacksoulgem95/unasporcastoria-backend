@@ -17,33 +17,33 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Faction extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Lob
-    @Column(name = "description")
-    private String description;
+  @Lob
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "type", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private FactionType type;
+  @Column(name = "type", nullable = false)
+  @Enumerated(EnumType.STRING)
+  private FactionType type;
 
-    @Column(name = "visibility", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private FactionVisibility visibility;
+  @Column(name = "visibility", nullable = false)
+  @Enumerated(EnumType.STRING)
+  private FactionVisibility visibility;
 
-    @OneToMany(mappedBy = "faction")
-    private Set<Character> characters = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "faction")
+  private Set<Character> characters = new LinkedHashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "faction_skills",
-            joinColumns = @JoinColumn(name = "faction_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private Set<Skill> skills = new LinkedHashSet<>();
+  @ManyToMany
+  @JoinTable(
+      name = "faction_skills",
+      joinColumns = @JoinColumn(name = "faction_id"),
+      inverseJoinColumns = @JoinColumn(name = "skill_id"))
+  private Set<Skill> skills = new LinkedHashSet<>();
 }

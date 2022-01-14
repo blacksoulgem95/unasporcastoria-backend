@@ -12,19 +12,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Comment extends BaseEntity {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "author", nullable = false)
-    private String author;
+  @Column(name = "author", nullable = false)
+  private String author;
 
-    @Lob
-    @Column(name = "text")
-    private String text;
+  @Lob
+  @Column(name = "text")
+  private String text;
 
-    @ManyToOne
-    @JoinColumn(name = "downtime_id")
-    private Downtime downtime;
+  @ManyToOne
+  @JoinColumn(name = "downtime_id")
+  private Downtime downtime;
 }

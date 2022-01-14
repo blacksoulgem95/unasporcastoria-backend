@@ -13,19 +13,19 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 public class JobType {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "label")
-    private String label;
+  @Column(name = "label")
+  private String label;
 
-    @Column(name = "requisite")
-    private Long requisite;
+  @Column(name = "requisite")
+  private Long requisite;
 
-    @ManyToOne
-    @JoinColumn(name = "job_id")
-    private Job job;
+  @ManyToOne
+  @JoinColumn(name = "job_id")
+  private Job job;
 
 }

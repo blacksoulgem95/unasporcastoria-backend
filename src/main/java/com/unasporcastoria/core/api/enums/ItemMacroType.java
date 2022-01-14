@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum ItemMacroType {
-    TOOL("TOOL"),
-    BUILDING("BUILDING"),
-    TERRAIN("TERRAIN");
+  TOOL("TOOL"),
+  BUILDING("BUILDING"),
+  TERRAIN("TERRAIN");
 
-    @Getter
-    @JsonValue
-    private final String value;
+  @Getter
+  @JsonValue
+  private final String value;
 }

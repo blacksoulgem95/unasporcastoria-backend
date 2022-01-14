@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum FactionVisibility {
-    PUBLIC("PUBLIC"),
-    SECRET("SECRET");
+  PUBLIC("PUBLIC"),
+  SECRET("SECRET");
 
-    @Getter
-    @JsonValue
-    private final String value;
+  @Getter
+  @JsonValue
+  private final String value;
 }

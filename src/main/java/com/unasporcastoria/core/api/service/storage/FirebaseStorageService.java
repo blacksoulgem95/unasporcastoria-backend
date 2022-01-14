@@ -1,7 +1,6 @@
 package com.unasporcastoria.core.api.service.storage;
 
 import com.google.cloud.storage.Blob;
-
 import com.google.cloud.storage.Bucket;
 import com.unasporcastoria.core.api.exception.Error;
 import com.unasporcastoria.core.api.exception.USSException;

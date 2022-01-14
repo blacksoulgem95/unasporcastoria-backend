@@ -15,22 +15,22 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Faith extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Lob
-    @Column(name = "description")
-    private String description;
+  @Lob
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "limit_spouses")
-    private Long limit_spouses = 1L;
+  @Column(name = "limit_spouses")
+  private Long limit_spouses = 1L;
 
-    @OneToMany
-    private Set<Character> characters = new LinkedHashSet<>();
+  @OneToMany
+  private Set<Character> characters = new LinkedHashSet<>();
 
 }

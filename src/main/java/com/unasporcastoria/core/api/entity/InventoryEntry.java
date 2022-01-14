@@ -13,24 +13,24 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 public class InventoryEntry extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "quantity")
-    private Long quantity;
+  @Column(name = "quantity")
+  private Long quantity;
 
-    @Column(name = "struct_point")
-    private Long structPoint = 0L;
+  @Column(name = "struct_point")
+  private Long structPoint = 0L;
 
-    // item
+  // item
 
-    @ManyToOne
-    @JoinColumn(name = "inventory_id")
-    private Inventory inventory;
+  @ManyToOne
+  @JoinColumn(name = "inventory_id")
+  private Inventory inventory;
 
-    @ManyToOne
-    @JoinColumn(name = "downtime_id")
-    private Downtime downtime;
+  @ManyToOne
+  @JoinColumn(name = "downtime_id")
+  private Downtime downtime;
 }

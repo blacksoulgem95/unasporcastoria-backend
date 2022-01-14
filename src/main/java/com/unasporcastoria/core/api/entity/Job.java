@@ -15,31 +15,31 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Job {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Lob
-    @Column(name = "description")
-    private String description;
+  @Lob
+  @Column(name = "description")
+  private String description;
 
-    @Lob
-    @Column(name = "cite")
-    private String cite;
+  @Lob
+  @Column(name = "cite")
+  private String cite;
 
-    @Column(name = "can_marry")
-    private boolean canMarry;
+  @Column(name = "can_marry")
+  private boolean canMarry;
 
-    @OneToMany(mappedBy = "job")
-    private Set<Character> characters = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "job")
+  private Set<Character> characters = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "job")
-    private Set<SkillGroup> skillGroups = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "job")
+  private Set<SkillGroup> skillGroups = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "job")
-    private Set<JobType> requisites = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "job")
+  private Set<JobType> requisites = new LinkedHashSet<>();
 }

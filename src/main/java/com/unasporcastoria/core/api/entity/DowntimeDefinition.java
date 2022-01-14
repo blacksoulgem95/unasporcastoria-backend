@@ -15,38 +15,38 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class DowntimeDefinition extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Lob
-    @Column(name = "description", nullable = false)
-    private String description;
+  @Lob
+  @Column(name = "description", nullable = false)
+  private String description;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+  @Column(name = "name", nullable = false)
+  private String name;
 
-    @Lob
-    @Column(name = "note")
-    private String note;
+  @Lob
+  @Column(name = "note")
+  private String note;
 
-    @Column(name = "challenge")
-    private Long challenge;
+  @Column(name = "challenge")
+  private Long challenge;
 
-    @ManyToOne
-    @JoinColumn(name = "attribute_id")
-    private Attribute attribute;
+  @ManyToOne
+  @JoinColumn(name = "attribute_id")
+  private Attribute attribute;
 
-    @ManyToOne
-    @JoinColumn(name = "skill_id")
-    private Skill skill;
+  @ManyToOne
+  @JoinColumn(name = "skill_id")
+  private Skill skill;
 
-    @OneToMany(mappedBy = "downtimeDefinition")
-    private Set<Recipe> recipes = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "downtimeDefinition")
+  private Set<Recipe> recipes = new LinkedHashSet<>();
 
-    @ManyToMany(mappedBy = "downtimeDefinitions")
-    private Set<Item> items = new LinkedHashSet<>();
+  @ManyToMany(mappedBy = "downtimeDefinitions")
+  private Set<Item> items = new LinkedHashSet<>();
 
 
 }

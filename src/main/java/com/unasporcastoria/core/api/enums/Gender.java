@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum Gender {
-    MAN("MAN"),
-    WOMAN("WOMAN");
+  MAN("MAN"),
+  WOMAN("WOMAN");
 
-    @Getter
-    @JsonValue
-    private final String value;
+  @Getter
+  @JsonValue
+  private final String value;
 
 }

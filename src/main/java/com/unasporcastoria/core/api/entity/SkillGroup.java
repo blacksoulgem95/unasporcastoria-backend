@@ -15,19 +15,19 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class SkillGroup {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "count")
-    private Long count;
+  @Column(name = "count")
+  private Long count;
 
-    @ManyToOne
-    @JoinColumn(name = "job_id")
-    private Job job;
+  @ManyToOne
+  @JoinColumn(name = "job_id")
+  private Job job;
 
-    @ManyToMany(mappedBy = "skillGroups")
-    private Set<Skill> skills = new LinkedHashSet<>();
+  @ManyToMany(mappedBy = "skillGroups")
+  private Set<Skill> skills = new LinkedHashSet<>();
 
 }

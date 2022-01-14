@@ -3,7 +3,6 @@ package com.unasporcastoria.core.api.service.storage;
 import com.unasporcastoria.core.api.util.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 

@@ -15,24 +15,24 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Attribute extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Lob
-    @Column(name = "description")
-    private String description;
+  @Lob
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "external_id", unique = true)
-    private String externalId;
+  @Column(name = "external_id", unique = true)
+  private String externalId;
 
-    @OneToMany(mappedBy = "attribute")
-    private Set<Dot> attributeDots = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "attribute")
+  private Set<Dot> attributeDots = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "attribute")
-    private Set<DowntimeDefinition> downtimeDefinitions = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "attribute")
+  private Set<DowntimeDefinition> downtimeDefinitions = new LinkedHashSet<>();
 }

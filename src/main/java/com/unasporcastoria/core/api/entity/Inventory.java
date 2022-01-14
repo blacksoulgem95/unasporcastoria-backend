@@ -15,21 +15,21 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Inventory extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
 
-    @Column(name = "label")
-    private String label;
+  @Column(name = "label")
+  private String label;
 
-    @ManyToOne
-    @JoinColumn(name = "character_id")
-    private Character owner;
+  @ManyToOne
+  @JoinColumn(name = "character_id")
+  private Character owner;
 
-    @Column(name = "is_public")
-    private boolean isPublic = false;
+  @Column(name = "is_public")
+  private boolean isPublic = false;
 
-    @OneToMany(mappedBy = "inventory", orphanRemoval = true)
-    private Set<InventoryEntry> inventoryEntries = new LinkedHashSet<>();
+  @OneToMany(mappedBy = "inventory", orphanRemoval = true)
+  private Set<InventoryEntry> inventoryEntries = new LinkedHashSet<>();
 }

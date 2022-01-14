@@ -11,27 +11,27 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class AWSConfig {
-    @Value("${cloud.aws.access-key}")
-    private String awsAccessKey;
+  @Value("${cloud.aws.access-key}")
+  private String awsAccessKey;
 
-    @Value("${cloud.aws.secret-key}")
-    private String awsSecretKey;
+  @Value("${cloud.aws.secret-key}")
+  private String awsSecretKey;
 
-    @Value("${cloud.aws.region}")
-    private String region;
+  @Value("${cloud.aws.region}")
+  private String region;
 
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucket;
+  @Value("${cloud.aws.s3.bucket}")
+  private String bucket;
 
-    @Primary
-    @Bean
-    public AmazonS3 amazonS3Client() {
-        return AmazonS3ClientBuilder
-                .standard()
-                .withRegion(region)
-                .withCredentials(new AWSStaticCredentialsProvider(
-                        new BasicAWSCredentials(awsAccessKey, awsSecretKey)))
-                .build();
-    }
+  @Primary
+  @Bean
+  public AmazonS3 amazonS3Client() {
+    return AmazonS3ClientBuilder
+        .standard()
+        .withRegion(region)
+        .withCredentials(new AWSStaticCredentialsProvider(
+            new BasicAWSCredentials(awsAccessKey, awsSecretKey)))
+        .build();
+  }
 
 }
