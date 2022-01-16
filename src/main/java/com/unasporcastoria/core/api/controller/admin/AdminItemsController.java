@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller("/api/admin/items")
 @RequiredArgsConstructor
-public class ItemsController {
+public class AdminItemsController {
 
   private final ItemService itemService;
 
