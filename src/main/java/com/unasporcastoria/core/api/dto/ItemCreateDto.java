@@ -11,9 +11,9 @@ import java.io.Serializable;
 public class ItemCreateDto implements Serializable {
   private final String name;
   private final String description;
-  private final Long price;
-  private final Long sellingPrice;
-  private final Long value;
+  private final Double price; // prices are expressed in Tallero
+  private final Double sellingPrice;
+  private final Double value;
   private final Long dots;
   private final Long max;
   private final Long bonus;
@@ -28,9 +28,9 @@ public class ItemCreateDto implements Serializable {
     var item = new Item();
     item.setName(this.name);
     item.setDescription(this.description);
-    item.setPrice(this.price);
-    item.setSellingPrice(this.sellingPrice);
-    item.setValue(this.value);
+    item.setPrice((long) (this.price * 10));
+    item.setSellingPrice((long) (this.sellingPrice * 10));
+    item.setValue((long) (this.value * 10));
     item.setDots(this.dots);
     item.setMax(this.max);
     item.setBonus(this.bonus);
