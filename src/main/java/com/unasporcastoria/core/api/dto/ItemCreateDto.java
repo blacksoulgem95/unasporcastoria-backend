@@ -1,5 +1,6 @@
 package com.unasporcastoria.core.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unasporcastoria.core.api.entity.Item;
 import com.unasporcastoria.core.api.enums.ItemMacroType;
 import com.unasporcastoria.core.api.enums.ItemType;
@@ -24,6 +25,7 @@ public class ItemCreateDto implements Serializable {
   private final boolean isConsumable;
   private final boolean onlyInCreation;
 
+  @JsonIgnore
   public Item toItem() {
     var item = new Item();
     item.setName(this.name);
