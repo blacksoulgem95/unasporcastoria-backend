@@ -28,7 +28,7 @@ public class Faith extends BaseEntity {
   private String description;
 
   @Column(name = "limit_spouses")
-  private Long limit_spouses = 1L;
+  private Long limitSpouses = 1L;
 
   @OneToMany
   private Set<Character> characters = new LinkedHashSet<>();
