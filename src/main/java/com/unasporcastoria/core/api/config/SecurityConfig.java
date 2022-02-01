@@ -4,6 +4,7 @@ import com.unasporcastoria.core.api.config.auth.FirebaseAuthenticationProvider;
 import com.unasporcastoria.core.api.config.auth.FirebaseFilter;
 import com.unasporcastoria.core.api.service.FirebaseService;
 import com.unasporcastoria.core.api.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -61,11 +62,12 @@ public class SecurityConfig {
   }
 
   @Configuration
+  @RequiredArgsConstructor
   @Order(SecurityProperties.BASIC_AUTH_ORDER)
   protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
-    @Autowired(required = false)
-    private FirebaseService firebaseService;
+    private final FirebaseService firebaseService;
+    private final UserService userService;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -102,7 +104,7 @@ public class SecurityConfig {
     }
 
     private FirebaseFilter tokenAuthorizationFilter() {
-      return new FirebaseFilter(firebaseService);
+      return new FirebaseFilter(firebaseService, userService);
     }
 
   }
