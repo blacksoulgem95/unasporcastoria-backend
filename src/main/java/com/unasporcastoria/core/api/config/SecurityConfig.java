@@ -6,7 +6,6 @@ import com.unasporcastoria.core.api.service.FirebaseService;
 import com.unasporcastoria.core.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -44,18 +43,13 @@ public class SecurityConfig {
     @Qualifier(value = UserService.NAME)
     private UserDetailsService userService;
 
-    @Value("${rs.pscode.firebase.enabled}")
-    private Boolean firebaseEnabled;
-
     @Autowired
     private FirebaseAuthenticationProvider firebaseProvider;
 
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
       auth.userDetailsService(userService);
-      if (firebaseEnabled) {
-        auth.authenticationProvider(firebaseProvider);
-      }
+      auth.authenticationProvider(firebaseProvider);
     }
   }
 
