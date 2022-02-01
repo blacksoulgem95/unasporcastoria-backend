@@ -48,6 +48,8 @@ public class UserService implements UserDetailsService {
             .orElse(new LinkedList<>(List.of(SecurityConfig.Roles.ROLE_USER))));
       }
 
+      log.debug("loadUserByUsername - User {} - loaded authorities ({})", username, roles);
+
       UserDetails userDetails = UserDto.generate(user,
           roles.stream().map(SimpleGrantedAuthority::new)
               .collect(Collectors.toSet()));
@@ -55,6 +57,7 @@ public class UserService implements UserDetailsService {
       return new org.springframework.security.core.userdetails.User(userDetails.getUsername(),
           userDetails.getPassword(), userDetails.getAuthorities());
     } catch (Exception e) {
+      log.debug("Error in loadUserByUsername", e);
       throw new FirebaseTokenInvalidException(e.getMessage(), e);
     }
   }
