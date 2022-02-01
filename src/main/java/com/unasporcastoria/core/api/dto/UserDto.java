@@ -29,6 +29,7 @@ public class UserDto implements UserDetails {
         .username(record.getEmail())
         .displayName(record.getDisplayName())
         .profilePic(record.getPhotoUrl())
+        .password("NOPASS")
         .authorities(authorities)
         .enabled(true)
         .accountNonExpired(true)
