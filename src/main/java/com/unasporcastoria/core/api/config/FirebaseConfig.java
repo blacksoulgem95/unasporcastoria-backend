@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 @Slf4j
 @Configuration
@@ -26,6 +27,8 @@ public class FirebaseConfig {
 
   @Bean
   public FirebaseOptions options() throws IOException {
+    if (Objects.equals(System.getenv("DEBUG"), "true"))
+      log.info("Starting Firebase Initialization - getting Service Account: {}", serviceAccount);
     return FirebaseOptions.builder()
         .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(serviceAccount.getBytes(StandardCharsets.UTF_8))))
         .build();
