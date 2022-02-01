@@ -68,7 +68,8 @@ public class SecurityConfig {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-      http.addFilterBefore(tokenAuthorizationFilter(), BasicAuthenticationFilter.class).authorizeRequests()//
+      http.cors()
+          .and().addFilterBefore(tokenAuthorizationFilter(), BasicAuthenticationFilter.class).authorizeRequests()//
 
           .antMatchers("/api/open/**").hasAnyRole(Roles.ANONYMOUS)//
           .antMatchers("/api/client/**").hasRole(Roles.USER)//
