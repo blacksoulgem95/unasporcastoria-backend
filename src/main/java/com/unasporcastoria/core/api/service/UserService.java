@@ -45,7 +45,7 @@ public class UserService implements UserDetailsService {
       } else {
         var userRoles = snap.toObject(UserRolesDto.class);
         roles.addAll(Optional.ofNullable(Objects.requireNonNull(userRoles).getRoles())
-            .orElse(new HashSet<>(List.of(SecurityConfig.Roles.ROLE_USER))));
+            .orElse(new LinkedList<>(List.of(SecurityConfig.Roles.ROLE_USER))));
       }
 
       UserDetails userDetails = UserDto.generate(user,
