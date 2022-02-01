@@ -11,7 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller("/api/admin/items")
+@Controller
+@RequestMapping("/api/admin/items")
 @RequiredArgsConstructor
 public class AdminItemsController {
 

@@ -9,8 +9,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("/api/user/items")
+@Controller
+@RequestMapping("/api/user/items")
 @RequiredArgsConstructor
 public class ItemsController {
 
