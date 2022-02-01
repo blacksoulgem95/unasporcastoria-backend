@@ -7,10 +7,9 @@ import com.unasporcastoria.core.api.service.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/api/admin/jobs")
 @RequiredArgsConstructor
 public class AdminJobsController {
