@@ -5,6 +5,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Bucket;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.cloud.FirestoreClient;
 import com.google.firebase.cloud.StorageClient;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,11 @@ public class FirebaseConfig {
   @Bean
   public FirebaseApp firebaseApp() throws IOException {
     return FirebaseApp.initializeApp(options());
+  }
+
+  @Bean
+  public FirebaseAuth firebaseAuth() throws IOException {
+    return FirebaseAuth.getInstance(firebaseApp());
   }
 
   @Bean
