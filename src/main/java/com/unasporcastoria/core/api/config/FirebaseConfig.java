@@ -22,13 +22,22 @@ import java.util.Objects;
 public class FirebaseConfig {
   @Value("${cloud.firebase.serviceaccount}")
   private String serviceAccount;
+
   @Value("${cloud.firebase.bucket}")
   private String bucket;
 
+  @Value("${debug}")
+  private boolean debug;
+
+  {
+    log.info("Loading {}", this.getClass().getCanonicalName());
+  }
+
   @Bean
   public FirebaseOptions options() throws IOException {
-    if (Objects.equals(System.getenv("DEBUG"), "true"))
+    if (debug)
       log.info("Starting Firebase Initialization - getting Service Account: {}", serviceAccount);
+
     return FirebaseOptions.builder()
         .setCredentials(GoogleCredentials.fromStream(new ByteArrayInputStream(serviceAccount.getBytes(StandardCharsets.UTF_8))))
         .build();
