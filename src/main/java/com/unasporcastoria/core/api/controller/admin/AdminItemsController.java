@@ -24,7 +24,7 @@ public class AdminItemsController {
 
   @GetMapping("/{id}")
   public Item getItem(@PathVariable("id") Long id) {
-    return itemService.getItem(id).orElseThrow(() -> new NotFoundException("Item"));
+    return itemService.get(id).orElseThrow(() -> new NotFoundException("Item"));
   }
 
   @PostMapping
@@ -35,5 +35,10 @@ public class AdminItemsController {
   @PostMapping("/{id}/image")
   public Item setImage(@PathVariable("id") Long id, @RequestParam("file") MultipartFile file) {
     return itemService.setImage(id, file);
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteItem(@PathVariable("id") Long id) {
+    itemService.delete(id);
   }
 }

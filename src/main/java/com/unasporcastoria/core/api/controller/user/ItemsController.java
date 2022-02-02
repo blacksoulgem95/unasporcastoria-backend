@@ -27,7 +27,7 @@ public class ItemsController {
 
   @GetMapping("/{id}")
   public Item getItem(@PathVariable("id") Long id) {
-    return itemService.getItem(id).orElseThrow(() -> new NotFoundException("Item"));
+    return itemService.get(id).orElseThrow(() -> new NotFoundException("Item"));
   }
 
 }

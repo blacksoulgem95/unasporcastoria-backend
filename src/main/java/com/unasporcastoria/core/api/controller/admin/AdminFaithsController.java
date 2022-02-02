@@ -23,12 +23,17 @@ public class AdminFaithsController {
 
   @GetMapping("/{id}")
   public Faith getFaith(@PathVariable("id") Long id) {
-    return faithService.getFaith(id).orElseThrow(() -> new NotFoundException("Faith"));
+    return faithService.get(id).orElseThrow(() -> new NotFoundException("Faith"));
   }
 
   @PostMapping
   public Faith createFaith(@RequestBody FaithCreateDto faith) {
     return faithService.createFaith(faith);
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteFaith(@PathVariable("id") Long id) {
+    faithService.delete(id);
   }
 
 }

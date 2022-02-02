@@ -23,7 +23,7 @@ public class AdminJobsController {
 
   @GetMapping("/{id}")
   public Job getJob(@PathVariable("id") Long id) {
-    return jobService.getJob(id).orElseThrow(() -> new NotFoundException("Job"));
+    return jobService.get(id).orElseThrow(() -> new NotFoundException("Job"));
   }
 
   @PostMapping
@@ -31,4 +31,8 @@ public class AdminJobsController {
     return jobService.createJob(job);
   }
 
+  @DeleteMapping("/{id}")
+  public void deleteJob(@PathVariable("id") Long id) {
+    jobService.delete(id);
+  }
 }
