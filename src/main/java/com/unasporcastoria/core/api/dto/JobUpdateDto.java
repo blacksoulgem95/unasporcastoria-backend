@@ -3,25 +3,21 @@ package com.unasporcastoria.core.api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unasporcastoria.core.api.entity.Job;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
 @Data
-public class JobCreateDto implements Serializable {
-  protected String name;
-  protected String cite;
-  protected String description;
-  protected Boolean canMarry = true;
-  protected Long level;
+@EqualsAndHashCode(callSuper = true)
+public class JobUpdateDto extends JobCreateDto{
+  protected Long id;
 
   @JsonIgnore
-  public Job toJob() {
-    var job = new Job();
+  public void toJob(Job job) {
     job.setName(name);
     job.setDescription(description);
     job.setCite(cite);
     job.setCanMarry(canMarry);
     job.setLevel(level);
-    return job;
   }
 }

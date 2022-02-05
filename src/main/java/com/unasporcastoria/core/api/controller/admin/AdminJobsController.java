@@ -1,6 +1,7 @@
 package com.unasporcastoria.core.api.controller.admin;
 
 import com.unasporcastoria.core.api.dto.JobCreateDto;
+import com.unasporcastoria.core.api.dto.JobUpdateDto;
 import com.unasporcastoria.core.api.entity.Job;
 import com.unasporcastoria.core.api.exception.NotFoundException;
 import com.unasporcastoria.core.api.service.JobService;
@@ -34,5 +35,10 @@ public class AdminJobsController {
   @DeleteMapping("/{id}")
   public void deleteJob(@PathVariable("id") Long id) {
     jobService.delete(id);
+  }
+
+  @PutMapping("/{id}")
+  public Job updateJob(@PathVariable("id") Long id, @RequestBody JobUpdateDto job) {
+    return jobService.update(id, job);
   }
 }

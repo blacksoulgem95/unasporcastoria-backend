@@ -8,6 +8,7 @@ public enum Error {
   NOT_FOUND("NOT_FOUND", HttpStatus.NOT_FOUND, "Entity {0} was not found."),
   WRONG_FILE_TYPE("WRONG_FILE_TYPE", HttpStatus.BAD_REQUEST, "We require {0} file types, you uploaded an incompatible file of type {1}"),
   FILE_UPLOAD_ERROR("FILE_UPLOAD_ERROR", HttpStatus.INTERNAL_SERVER_ERROR, "Cannot upload file"),
+  ID_MISMATCH("ID_MISMATCH", HttpStatus.BAD_REQUEST, "The payload does not refer to the ID specified in the call")
   ;
 
   private final String code;

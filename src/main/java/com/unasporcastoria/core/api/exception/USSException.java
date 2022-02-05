@@ -8,12 +8,22 @@ public class USSException extends RuntimeException {
   @Getter
   private final Error error;
 
+  public USSException(Error error) {
+    super(error.getCode());
+    this.error = error;
+  }
+
+  public USSException(Error error, Throwable ex) {
+    super(error.getCode(), ex);
+    this.error = error;
+  }
+
   public USSException(Error error, String message) {
     super(error.getCode() + " - " + message);
     this.error = error;
   }
 
-  public USSException(Error error, String message, Exception ex) {
+  public USSException(Error error, String message, Throwable ex) {
     super(error.getCode() + " - " + message, ex);
     this.error = error;
   }
