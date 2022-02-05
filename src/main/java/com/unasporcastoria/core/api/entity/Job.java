@@ -34,6 +34,9 @@ public class Job {
   @Column(name = "can_marry")
   private boolean canMarry;
 
+  @Column(name = "level")
+  private Long level;
+
   @OneToMany(mappedBy = "job")
   private Set<Character> characters = new LinkedHashSet<>();
 

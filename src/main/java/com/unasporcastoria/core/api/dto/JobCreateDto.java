@@ -12,6 +12,7 @@ public class JobCreateDto implements Serializable {
   private String cite;
   private String description;
   private Boolean canMarry = true;
+  private Long level;
 
   @JsonIgnore
   public Job toJob() {
@@ -20,6 +21,7 @@ public class JobCreateDto implements Serializable {
     job.setDescription(description);
     job.setCite(cite);
     job.setCanMarry(canMarry);
+    job.setLevel(level);
     return job;
   }
 }
