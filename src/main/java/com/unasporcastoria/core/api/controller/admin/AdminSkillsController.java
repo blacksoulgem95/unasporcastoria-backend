@@ -1,6 +1,7 @@
 package com.unasporcastoria.core.api.controller.admin;
 
 import com.unasporcastoria.core.api.dto.SkillCreateDto;
+import com.unasporcastoria.core.api.dto.SkillUpdateDto;
 import com.unasporcastoria.core.api.entity.Skill;
 import com.unasporcastoria.core.api.exception.NotFoundException;
 import com.unasporcastoria.core.api.service.SkillService;
@@ -34,6 +35,11 @@ public class AdminSkillsController {
   @DeleteMapping("/{id}")
   public void deleteSkill(@PathVariable("id") Long id) {
     skillService.delete(id);
+  }
+
+  @PutMapping("/{id}")
+  public Skill updateSkill(@PathVariable("id") Long id, @RequestBody SkillUpdateDto skill) {
+    return skillService.update(id, skill);
   }
 
 }

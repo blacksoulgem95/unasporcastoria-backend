@@ -1,24 +1,21 @@
 package com.unasporcastoria.core.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.unasporcastoria.core.api.entity.Faith;
 import com.unasporcastoria.core.api.entity.Skill;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
 @Data
-public class SkillCreateDto implements Serializable {
-  protected String name;
-  protected String description1;
-  protected String description2;
+@EqualsAndHashCode(callSuper = true)
+public class SkillUpdateDto extends SkillCreateDto {
+  protected Long id;
 
   @JsonIgnore
-  public Skill toSkill() {
-    var skill = new Skill();
+  public void toSkill(Skill skill) {
     skill.setName(name);
     skill.setDescription1(description1);
     skill.setDescription2(description2);
-    return skill;
   }
 }
