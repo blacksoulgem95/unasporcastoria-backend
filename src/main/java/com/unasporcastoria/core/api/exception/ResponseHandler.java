@@ -15,5 +15,6 @@ public class ResponseHandler extends ResponseEntityExceptionHandler {
       USSException ex, WebRequest request) {
     return handleExceptionInternal(ex, ex.getData(), new HttpHeaders(), ex.getError().getStatus(), request);
   }
+
 }
 

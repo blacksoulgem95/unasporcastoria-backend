@@ -2,15 +2,19 @@ package com.unasporcastoria.core.api.service;
 
 import com.unasporcastoria.core.api.dto.SkillCreateDto;
 import com.unasporcastoria.core.api.dto.SkillUpdateDto;
+import com.unasporcastoria.core.api.entity.Job;
 import com.unasporcastoria.core.api.entity.Skill;
 import com.unasporcastoria.core.api.exception.Error;
 import com.unasporcastoria.core.api.exception.USSException;
 import com.unasporcastoria.core.api.repository.SkillRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Slf4j
 @Service
@@ -22,8 +26,11 @@ public class SkillService extends BaseService<Skill, Long, SkillRepository> {
     this.repository = repository;
   }
 
-  public Page<Skill> getSkills(Pageable pageable) {
-    return repository.findAll(pageable);
+  @Transactional
+  public Page<Skill> findAll(Pageable pageable, String name) {
+    if (StringUtils.isNotBlank(name))
+      return repository().findByNameContainingIgnoreCase(name, pageable);
+    else return repository().findAll(pageable);
   }
 
   public Skill createSkill(SkillCreateDto skillDto) {

@@ -20,7 +20,7 @@ public class AdminJobsController {
   @GetMapping
   public Page<Job> getJobs(@RequestParam(value = "name", required = false) String name,
                            Pageable pageable) {
-    return jobService.getJobs(pageable, name);
+    return jobService.findAll(pageable, name);
   }
 
   @GetMapping("/{id}")

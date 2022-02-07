@@ -18,8 +18,9 @@ public class AdminItemsController {
   private final ItemService itemService;
 
   @GetMapping
-  public Page<Item> getItems(Pageable pageable) {
-    return itemService.getItems(pageable);
+  public Page<Item> getItems(@RequestParam(value = "name", required = false) String name,
+                             Pageable pageable) {
+    return itemService.findAll(pageable, name);
   }
 
   @GetMapping("/{id}")

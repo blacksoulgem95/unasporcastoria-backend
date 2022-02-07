@@ -2,6 +2,7 @@ package com.unasporcastoria.core.api.service;
 
 import com.unasporcastoria.core.api.dto.ItemCreateDto;
 import com.unasporcastoria.core.api.entity.Item;
+import com.unasporcastoria.core.api.entity.Job;
 import com.unasporcastoria.core.api.exception.WrongFileTypeException;
 import com.unasporcastoria.core.api.repository.FaithRepository;
 import com.unasporcastoria.core.api.repository.ItemRepository;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -32,10 +34,12 @@ public class ItemService extends BaseService<Item, Long, ItemRepository> {
     this.storage = storage;
   }
 
-  public Page<Item> getItems(Pageable pageable) {
-    return repository.findAll(pageable);
+  @Transactional
+  public Page<Item> findAll(Pageable pageable, String name) {
+    if (StringUtils.isNotBlank(name))
+      return repository().findByNameContainingIgnoreCase(name, pageable);
+    else return repository().findAll(pageable);
   }
-  
   public Item createItem(ItemCreateDto itemDto) {
     var item = itemDto.toItem();
     return repository.save(item);

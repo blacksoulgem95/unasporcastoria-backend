@@ -17,8 +17,9 @@ public class AdminFaithsController {
   private final FaithService faithService;
 
   @GetMapping
-  public Page<Faith> getFaiths(Pageable pageable) {
-    return faithService.getFaiths(pageable);
+  public Page<Faith> getFaiths(@RequestParam(value = "name", required = false) String name,
+                               Pageable pageable) {
+    return faithService.findAll(pageable, name);
   }
 
   @GetMapping("/{id}")

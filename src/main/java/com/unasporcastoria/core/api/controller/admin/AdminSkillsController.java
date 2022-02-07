@@ -18,8 +18,9 @@ public class AdminSkillsController {
   private final SkillService skillService;
 
   @GetMapping
-  public Page<Skill> getSkills(Pageable pageable) {
-    return skillService.getSkills(pageable);
+  public Page<Skill> getSkills(@RequestParam(value = "name", required = false) String name,
+                               Pageable pageable) {
+    return skillService.findAll(pageable, name);
   }
 
   @GetMapping("/{id}")
