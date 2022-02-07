@@ -18,8 +18,8 @@ public class AdminJobsController {
   private final JobService jobService;
 
   @GetMapping
-  public Page<Job> getJobs(Pageable pageable) {
-    return jobService.getJobs(pageable);
+  public Page<Job> getJobs(@RequestParam("name") String name, Pageable pageable) {
+    return jobService.getJobs(pageable, name);
   }
 
   @GetMapping("/{id}")

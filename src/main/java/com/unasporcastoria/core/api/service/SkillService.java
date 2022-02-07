@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class SkillService extends BaseService<Skill, Long> {
+public class SkillService extends BaseService<Skill, Long, SkillRepository> {
 
   @Autowired
   public SkillService(SkillRepository repository) {

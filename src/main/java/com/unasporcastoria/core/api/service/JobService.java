@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class JobService extends BaseService<Job, Long> {
-
+public class JobService extends BaseService<Job, Long, JobRepository> {
 
   @Autowired
   public JobService(JobRepository repository) {
@@ -23,13 +22,13 @@ public class JobService extends BaseService<Job, Long> {
     this.repository = repository;
   }
 
-  public Page<Job> getJobs(Pageable pageable) {
-    return repository.findAll(pageable);
+  public Page<Job> getJobs(Pageable pageable, String name) {
+    return repository().findByNameContainingIgnoreCase(name, pageable);
   }
 
   public Job createJob(JobCreateDto jobDto) {
     var job = jobDto.toJob();
-    return repository.save(job);
+    return repository().save(job);
   }
 
   public Job update(Long id, JobUpdateDto job) {
@@ -41,6 +40,6 @@ public class JobService extends BaseService<Job, Long> {
       throw new USSException(Error.ID_MISMATCH);
     }
 
-    return repository.save(j);
+    return repository().save(j);
   }
 }

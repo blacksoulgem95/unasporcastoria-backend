@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Slf4j
 @Service
-public class FaithService extends BaseService<Faith, Long> {
+public class FaithService extends BaseService<Faith, Long, FaithRepository> {
 
   @Autowired
   public FaithService(FaithRepository repository) {
