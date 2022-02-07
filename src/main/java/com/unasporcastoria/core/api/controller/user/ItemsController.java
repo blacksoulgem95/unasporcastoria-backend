@@ -6,10 +6,7 @@ import com.unasporcastoria.core.api.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user/items")
@@ -21,8 +18,9 @@ public class ItemsController {
   private final ItemService itemService;
 
   @GetMapping
-  public Page<Item> getItems(Pageable pageable) {
-    return itemService.getItems(pageable);
+  public Page<Item> getItems(@RequestParam(value = "name", required = false) String name,
+                             Pageable pageable) {
+    return itemService.findAll(pageable, name);
   }
 
   @GetMapping("/{id}")
